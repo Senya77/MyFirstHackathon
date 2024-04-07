@@ -1,16 +1,7 @@
 from ultralytics import YOLO
-from abc import ABC, abstractmethod
-import numpy as np
-import cv2
-import sys
+import os
 
-
-class Detector(ABC):
-    @abstractmethod
-    def predict(self, image: np.ndarray):
-        pass
-
-class YOLOv8(Detector):
+class YOLOv8():
     def __init__(self, detector_model_path):
         self.detector_model_path = detector_model_path
         self.model = YOLO(self.detector_model_path)
@@ -24,4 +15,7 @@ def main(name):
     result = yolo_model.predict(name)
 
 if __name__ == '__main__':
-    main('')
+    foldor_name = 'output_orb'
+    dir_list = os.listdir(foldor_name)
+    for file in dir_list:
+        main(f'{foldor_name}\\{file}')
