@@ -15,7 +15,7 @@ def main(name):
     result = yolo_model.predict(name)
 
 if __name__ == '__main__':
-    foldor_name = 'output_orb'
-    dir_list = os.listdir(foldor_name)
+    folder_name = 'output_orb'
+    dir_list = os.listdir(folder_name)
     for file in dir_list:
-        main(f'{foldor_name}\\{file}')
+        main(f'{folder_name}\\{file}')
